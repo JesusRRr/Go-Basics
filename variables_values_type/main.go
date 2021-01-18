@@ -14,7 +14,8 @@ var number0 int
 var number1 = 1
 
 // Custom type mytype
-// underline type INT
+// underlying type INT
+// each type T has and underlying type
 type mytype int
 
 var number3 mytype = 3
