@@ -51,4 +51,16 @@ func main() {
 	muliSlice := [][]int{mySlice3, mySlice3, mySlice3}
 	fmt.Printf("%T%v\n", muliSlice, muliSlice)
 
+	// Maps
+	//Composite literal
+	myMap := map[string]int{
+		"jesus": 2,
+	}
+	fmt.Println(myMap["jesus"])
+
+	// Comma OK idiom
+	v, ok := myMap["go"]
+	fmt.Println(v)
+	fmt.Println(ok)
+
 }
