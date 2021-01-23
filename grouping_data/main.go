@@ -63,4 +63,28 @@ func main() {
 	fmt.Println(v)
 	fmt.Println(ok)
 
+	// Comma Ok conditional statement
+	if value, isInMap := myMap["jesus"]; isInMap {
+		fmt.Printf("The key is in the map and the value is %v\n", value)
+	} else {
+		fmt.Printf("The key isn't in the map\n")
+	}
+
+	// Ading elements to a map
+	myMap["go"] = 5
+	myMap["java"] = 6
+
+	//range a map
+	for k, v := range myMap {
+		fmt.Printf("key: %v \tvalue: %v\n", k, v)
+	}
+
+	key := "java"
+	// deleting from a map
+	if _, ok := myMap[key]; ok {
+		fmt.Println("Deleting ", key)
+		delete(myMap, key)
+		fmt.Println(myMap)
+	}
+
 }
