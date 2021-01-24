@@ -42,10 +42,44 @@ type developer struct {
 	languje string
 }
 
-//Methos
+//struct dataScientist
+type dataScientist struct {
+	name    string
+	languje string
+}
+
+//Methods
 //func ( r receiver) identifier(parameters) (returns){body}
 func (dev developer) develop() {
 	fmt.Println(dev.name, "is developing in", dev.languje, "languaje")
+}
+
+func (ds dataScientist) develop() {
+	fmt.Println(ds.name, "uses", ds.languje, "for data Science")
+}
+
+//Interfaces
+//Any type implements the method in a interface, it is now type interface
+//Every type implements an empty interface: interface{}
+type person interface {
+	develop()
+}
+
+//This method uses the person interface as a parameter
+//Any type that implements develop method, could be passed as an argument
+//This is polymorphism
+func speak(per person) {
+	var name string
+	var role string
+	switch per.(type) {
+	case developer:
+		name = per.(developer).name
+		role = "Developer"
+	case dataScientist:
+		name = per.(dataScientist).name
+		role = "Data Scientist"
+	}
+	fmt.Printf("I am %v and I am %v\n", name, role)
 }
 
 func main() {
@@ -74,10 +108,18 @@ func main() {
 	fmt.Println("Languajes' lenght", len(languajes))
 	fmt.Println("Languajes' capacity", cap(languajes))
 
-	jesus := developer{
+	jesusDev := developer{
 		name:    name,
 		languje: languajes[0],
 	}
-	fmt.Println(jesus)
-	jesus.develop()
+
+	jesusDS := dataScientist{
+		name:    name,
+		languje: languajes[2],
+	}
+	fmt.Println(jesusDev)
+	jesusDev.develop()
+	speak(jesusDev)
+	jesusDS.develop()
+	speak(jesusDS)
 }
