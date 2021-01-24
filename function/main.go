@@ -39,7 +39,8 @@ func setLanguajes(name string, languajes ...string) []string {
 func main() {
 	name = "Jesus"
 	// function without arguments
-	myFunction1()
+	// defer keyword will run after main func run
+	defer myFunction1()
 	myFunction2(name)
 	value := myFunction3(name)
 	fmt.Print(value)
