@@ -36,10 +36,22 @@ func setLanguajes(name string, languajes ...string) []string {
 	return languajes
 }
 
+//struct developer
+type developer struct {
+	name    string
+	languje string
+}
+
+//Methos
+//func ( r receiver) identifier(parameters) (returns){body}
+func (dev developer) develop() {
+	fmt.Println(dev.name, "is developing in", dev.languje, "languaje")
+}
+
 func main() {
 	name = "Jesus"
 	// function without arguments
-	// defer keyword will run after main func run
+	// defer keyword will run after main func runs
 	defer myFunction1()
 	myFunction2(name)
 	value := myFunction3(name)
@@ -61,4 +73,11 @@ func main() {
 	fmt.Printf("Type: %T\t Values: %v\n", languajes, languajes)
 	fmt.Println("Languajes' lenght", len(languajes))
 	fmt.Println("Languajes' capacity", cap(languajes))
+
+	jesus := developer{
+		name:    name,
+		languje: languajes[0],
+	}
+	fmt.Println(jesus)
+	jesus.develop()
 }
