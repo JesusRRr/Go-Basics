@@ -90,6 +90,38 @@ func x() func() string {
 	}
 }
 
+func sumatory(num ...int) int {
+	var sum int
+	for _, v := range num {
+		sum += v
+	}
+	return sum
+}
+
+//Callback
+//passing a function as an argument
+func sumEvenNumbers(sum func(num ...int) int, num ...int) int {
+	var even []int
+
+	for _, v := range num {
+		if v%2 == 0 {
+			even = append(even, v)
+		}
+	}
+	return sum(even...)
+}
+
+func sumOddNumbers(sum func(num ...int) int, num ...int) int {
+	var even []int
+
+	for _, v := range num {
+		if v%2 != 0 {
+			even = append(even, v)
+		}
+	}
+	return sum(even...)
+}
+
 func main() {
 	name = "Jesus"
 	// function without arguments
@@ -148,4 +180,9 @@ func main() {
 	// returning a function
 	y := x()
 	fmt.Printf("Type: %T \t Value: %v\n", y, y())
+	numbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	fmt.Println("Sumatory:", sumatory(numbers...))
+	// using the callback function
+	fmt.Println("Sumatory of Even numbers:", sumEvenNumbers(sumatory, numbers...))
+	fmt.Println("Sumatory of Even numbers:", sumOddNumbers(sumatory, numbers...))
 }
