@@ -82,6 +82,14 @@ func speak(per person) {
 	fmt.Printf("I am %v and I am %v\n", name, role)
 }
 
+// return a function
+func x() func() string {
+	// Anomymous function
+	return func() string {
+		return "This code comes from x"
+	}
+}
+
 func main() {
 	name = "Jesus"
 	// function without arguments
@@ -136,4 +144,8 @@ func main() {
 		println("funcExpression was called by", name)
 	}
 	funcExpression(name)
+
+	// returning a function
+	y := x()
+	fmt.Printf("Type: %T \t Value: %v\n", y, y())
 }
