@@ -122,6 +122,16 @@ func sumOddNumbers(sum func(num ...int) int, num ...int) int {
 	return sum(even...)
 }
 
+// Closure
+// code block that enclosing some variables
+func incrementor() func() int {
+	var x int
+	return func() int {
+		x++
+		return x
+	}
+}
+
 func main() {
 	name = "Jesus"
 	// function without arguments
@@ -185,4 +195,14 @@ func main() {
 	// using the callback function
 	fmt.Println("Sumatory of Even numbers:", sumEvenNumbers(sumatory, numbers...))
 	fmt.Println("Sumatory of Even numbers:", sumOddNumbers(sumatory, numbers...))
+
+	// using clousure
+	a := incrementor()
+	b := incrementor()
+	var x int
+	for i := 0; i < 10; i++ {
+		x = a()
+	}
+	fmt.Println("value of incrementor a:", x)
+	fmt.Println("value of incrementor b:", b())
 }
