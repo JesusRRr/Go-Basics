@@ -128,4 +128,12 @@ func main() {
 	func(name string) {
 		println("Anomymous function was called by", name)
 	}(name)
+
+	//func expression
+	//functios are first class citizens
+	//A funtion is also a type
+	funcExpression := func(name string) {
+		println("funcExpression was called by", name)
+	}
+	funcExpression(name)
 }
