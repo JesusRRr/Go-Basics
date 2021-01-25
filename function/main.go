@@ -122,4 +122,10 @@ func main() {
 	speak(jesusDev)
 	jesusDS.develop()
 	speak(jesusDS)
+
+	//Anonymous function
+	// func(parameters){body}(arguments)
+	func(name string) {
+		println("Anomymous function was called by", name)
+	}(name)
 }
