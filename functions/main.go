@@ -27,7 +27,7 @@ func myFunction3(name string) string {
 func myFunction4(name string) (string, bool) {
 	return fmt.Sprintln("myFunction4 was called by", name), name == "Jesus"
 }
-
+//->
 //variadic parmaters
 //The output is a slice of the parameter type
 //The variadic parmather must be the end paramater
@@ -35,7 +35,7 @@ func setLanguajes(name string, languajes ...string) []string {
 	fmt.Println("Function setLanguajes was called by", name)
 	return languajes
 }
-
+//->
 //struct developer
 type developer struct {
 	name    string
@@ -81,6 +81,7 @@ func speak(per person) {
 	}
 	fmt.Printf("I am %v and I am %v\n", name, role)
 }
+//->
 
 // return a function
 func x() func() string {
@@ -90,6 +91,7 @@ func x() func() string {
 	}
 }
 
+//->
 func sumatory(num ...int) int {
 	var sum int
 	for _, v := range num {
@@ -121,7 +123,7 @@ func sumOddNumbers(sum func(num ...int) int, num ...int) int {
 	}
 	return sum(even...)
 }
-
+//->
 // Closure
 // code block that enclosing some variables
 func incrementor() func() int {
