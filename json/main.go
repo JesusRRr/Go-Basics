@@ -11,6 +11,12 @@ type person struct {
 	Age   int
 }
 
+type personJS struct {
+	First string `json:"First"`
+	Last  string `json:"Last"`
+	Age   int    `json:"Age"`
+}
+
 func main() {
 	p1 := person{
 		"Jesus",
@@ -31,5 +37,15 @@ func main() {
 		fmt.Println(err)
 	}
 
-	fmt.Println(string(bs))
+	fmt.Print(string(bs))
+	fmt.Printf("\t%T\n", bs)
+	peopleJS := []personJS{}
+	//func UnMarshal(data []byte, v interface{}) error
+	//Unmarshal parses the JSON-encoded data and stores the value pointed to v
+	err = json.Unmarshal(bs, &peopleJS)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Print(peopleJS)
+	fmt.Printf("\t%T\n", peopleJS)
 }
