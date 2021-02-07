@@ -27,6 +27,7 @@ func main() {
 	fmt.Printf("%T\t\n", c2)
 	fmt.Printf("%T\t\n", cr)
 	fmt.Printf("%T\t\n", cs)
+  
 
 	c3 := make(chan int)
 	go foo(c3)
@@ -41,4 +42,5 @@ func foo(c chan<- int) {
 // receive
 func bar(c <-chan int) {
 	fmt.Println(<-c)
+
 }
